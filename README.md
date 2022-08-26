@@ -2,7 +2,7 @@
 
 This repository tracks ongoing improvements to the ETM standard. In the current building phase, it is maintained by the creators of the repository, but the future goal is to have this process maintained by the community.
 
-For an introduction to the ETM standard, start [here](https://etm-standard.github.io/).
+To view the docs, go [here](https://etm-standard.github.io/).
 
 If you would like to become an ETM collaborator, please email zunk@niftyisland.io.
 
@@ -12,4 +12,4 @@ The ETM standard is a forward-looking standard which seeks to future-proof usabi
 
 ## Discussion
 
-For now, discussions should take place in the [GitHub Discussions board for this repo](https://github.com/Nifty-Island/etm-standard/discussions).
+For now, discussions should take place in the [GitHub Discussions board for this repo](https://github.com/ETM-Standard/etm-standard.github.io/discussions).
