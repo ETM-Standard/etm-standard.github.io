@@ -10,7 +10,7 @@ sidebar_position: 1
 |-------------|-------------|
 | Authors   | Zack Pantely, Kavan Sikand |
 | Contributors| | 
-| Discussions To | https://github.com/Nifty-Island/etm-standard/discussions/6 |
+| Discussions To | https://github.com/ETM-Standard/etm-standard.github.io/discussions/4 |
 | Type | ETM Extension |
 | Extension Name | ETM_ATTRIBUTES_v1.0.0 |
 | Created | 2022-06-06 |

@@ -10,7 +10,7 @@ sidebar_position: 1
 |-------------|-------------|
 | Authors   | Zack Pantely, Kavan Sikand |
 | Contributors| Florian Uhde |
-| Discussions To | https://github.com/Nifty-Island/etm-standard/discussions/4 |
+| Discussions To | https://github.com/ETM-Standard/etm-standard.github.io/discussions/2 |
 | Type | Metadata Standard |
 | Standard Name | ETM_v1.0.0 |
 | Created | 2022-06-06 |
