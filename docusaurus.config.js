@@ -14,9 +14,6 @@ const config = {
     process.env.DOCUSAURUS_TAGLINE || 'Extensible Token Metadata Standard',
   url: process.env.DOCUSAURUS_URL || 'https://etm-standard.github.io',
   baseUrl: process.env.DOCUSAURUS_BASE_URL || '/',
-  onBrokenLinks: process.env.DOCUSAURUS_ON_BROKEN_LINKS || 'throw',
-  onBrokenMarkdownLinks:
-    process.env.DOCUSAURUS_ON_BROKEN_MARKDOWN_LINKS || 'warn',
   favicon: process.env.DOCUSAURUS_FAVICON || 'img/favicon.ico',
   organizationName: process.env.DOCUSAURUS_ORGANIZATION_NAME || 'ETM-Standard', // Usually your GitHub org/user name.
   projectName:
