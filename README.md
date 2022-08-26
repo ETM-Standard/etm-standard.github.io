@@ -2,7 +2,7 @@
 
 This repository tracks ongoing improvements to the ETM standard. In the current building phase, it is maintained by the creators of the repository, but the future goal is to have this process maintained by the community.
 
-For an introduction to the ETM standard, start [here](https://standards.niftyisland.com/).
+For an introduction to the ETM standard, start [here](https://etm-standard.github.io/).
 
 If you would like to become an ETM collaborator, please email zunk@niftyisland.io.
 
