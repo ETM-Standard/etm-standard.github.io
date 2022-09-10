@@ -45,7 +45,8 @@ const config = {
         title: 'Metadata Standards',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.png',
+          src: 'img/etm_logo_black.png',
+          srcDark: 'img/etm_logo_white.png',
         },
         // items: [
         //   {
