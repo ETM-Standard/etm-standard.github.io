@@ -42,7 +42,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Metadata Standards',
+        title: 'Metadata Standard',
         logo: {
           alt: 'My Site Logo',
           src: 'img/etm_logo_black.png',
