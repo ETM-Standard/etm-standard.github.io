@@ -128,7 +128,7 @@ This standard defines a set of standardized `AssetType` values in order to provi
 | holdable/gun|  | |
 | holdable/sword| | |
 | holdable/consumable| | |
-| holdable/generic| | |
+| holdable/generic| An item that is holdable | The item can be placed in the equipable slot of an avatar |
 
 ##### Audio
 | Name    | Description | Expected in game use    |
@@ -174,23 +174,25 @@ This standard defines a set of standardized `AssetType` values in order to provi
 | building/floor| | |
 | building/generic| | |
 
-pet? (B33)
-car?
-
 ## Metadata Examples
 
 #### Single Asset
 The following is an example of this extension when used for a single NFT asset.
 
 #### Multiple Assets
-The following is an example of this extension when used in conjunction with the ETM MULTIASSET Standard.
-
+The following is an example of this extension when used in conjunction with the [ETM MULTIASSET Standard](ETM_MULTIASSET_v1.0.0).
 
 ## Backwards Compatibility
 This extension to the metadata standard is backwards compatible with existing metadata suggestions proposed in ERC-721 and ERC-1155, as well as [ETM](ETM_v1.0.0).
 
 ## Considerations
 This standard requires games to support this taxonomy.  As a result, not all funcionaslity between games will be consistent, nor necessarily supported
+
+Future Standard Considerations:
+- Pets (B33)
+- Vehicles
+- NPCs
+- Stacking behaviours?
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
