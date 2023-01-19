@@ -71,6 +71,7 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL 
 #### Top-Level Metadata:
 This specification, when used for a single asset, adds the `asset_type` key to the top level of [ETM](ETM_v1.0.0) metadata JSON.
 
+- only with multiasset standard
 ```
 {
   "metadataStandard": "ETM_v1.0.0",
@@ -111,17 +112,27 @@ The below table defines the fields that are added to the top-level metadata JSON
 | asset_type| string     | REQUIRED   |
 
 #### Standard `AssetType` Definitions
-This standard defines a set of standardized `AssetType` values in order to provide a known interpretation for common types of assets. The `AssetType` MUST be a value from this list. These definitions and their requirements are defined below.
+This standard defines a set of standardized `AssetType` values in order to provide a known interpretation for common types of assets.  `AssetTypes` are in the format of `category/item`.  These definitions and their requirements are defined below.  The `AssetType` is RECOMMENDED to be a value from this list, but users are free to impose functionality on both sides of this standard as they see fit. 
+- SHOULD use
 
-##### Wearables
+##### Categories and Items
+This taxonomy standard uses a high level categorical identifier, followed by a variable number of sub-type identifiers.  High level categories define general usability, while following optional item descriptors provide more granular information.  An item marked `holdable` should just be holdable, while an item marked `holdable/gun` should be held, and firable.
+
+##### Clothing
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
-| wearable/top| shirt, jacket, robe, etc | Placeable on upper torso/arms of avatar |
-| wearable/bottom| pants, skirt, etc | Placeable on lower torso/legs of avatar |
-| wearable/head| hat, helmet, etc | Placeable on the head of an avatar |
-| wearable/feet| shoes, socks, etc | Placeable on the feet of a biped avatar |
-| wearable/generic| | |
+| clothing/top| shirt, jacket, robe, etc | Placeable on upper torso/arms of avatar |
+| clothing/bottom| pants, skirt, etc | Placeable on lower torso/legs of avatar |
+| clothing/head| hat, helmet, etc | Placeable on the head of an avatar |
+| clothing/feet| shoes, socks, etc | Placeable on the feet of a biped avatar |
+| clothing/generic| | |
 
+- not enough granularity
+- clothing/shirt
+- clothing/jacket
+- clothing/earring
+
+##### Weapons
 ##### Holdables
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
@@ -129,13 +140,23 @@ This standard defines a set of standardized `AssetType` values in order to provi
 | holdable/sword| | |
 | holdable/consumable| | |
 | holdable/generic| An item that is holdable | The item can be placed in the equipable slot of an avatar |
+- don't describe use (not a behaviour taxonomy - consumable, holdable, wearable)
+  - weapon/gun
+
+##### Avatar
+avatar/humanoid
 
 ##### Audio
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
 | audio/sfx|  | |
 | audio/ambient| | |
+| audio/music| | |
 | audio/generic| | |
+
+- Break out sfx?
+  - sfx/movement/jump
+  - sfx/environment/waves
 
 ##### Furniture
 | Name    | Description | Expected in game use    |
@@ -164,10 +185,10 @@ This standard defines a set of standardized `AssetType` values in order to provi
 | nature/rock| | |
 | nature/generic| | |
 
-##### Building
+##### Structure (vs Building)
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
-| building/wall|  | |
+| structure/wall|  | |
 | building/door| | |
 | building/window| | |
 | building/roof|  | |
