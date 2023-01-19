@@ -45,7 +45,7 @@ This specification adds the `attributes` key to the top level of [ETM](ETM_v1.0.
 
 ```
 {
-  "metadataStandard": "ETM_v1.0.0",
+  "metadata_standard": "ETM_v1.0.0",
   "extensions": [ "ETM_ATTRIBUTES_v1.0.0" ],
   "attributes": []
 }
@@ -83,7 +83,7 @@ The `value` key allows creators to set the value of an attribute. The value of t
 The following is an example of this extension being used as a wrapper for OpenSea's standard.
 ```
 {
-  "metadataStandard": "ETM_v1.0.0",
+  "metadata_standard": "ETM_v1.0.0",
   "extensions": [ "ETM_ATTRIBUTES_v1.0.0" ],
   "attributes": [
     {
