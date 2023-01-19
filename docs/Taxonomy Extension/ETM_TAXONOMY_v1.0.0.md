@@ -16,34 +16,44 @@ sidebar_position: 1
 | Created | 2022-09-06 |
 
 ## Table of contents
-- [Summary](#summary)
-- [Abstract](#abstract)
-- [Motivation](#motivation)
-- [Specification](#specification)
-    - [Top-Level Metadata](#top-level-metadata)
-    - [Extended Top-Level Data Types](#extended-top-level-data-types)
-    - [Standard `AssetType` Definitions](#standard-assettype-definitions)
-- [Metadata Examples](#metadata-examples)
-    - [Single Asset](#single-asset)
-    - [Multiple Assets](#multiple-assets)
-- [Backwards Compatibility](#backwards-compatibility)
-- [Considerations](#considerations)
-- [Security Considerations](#security-considerations)
-- [Copyright](#copyright)
+- [ETM\_TAXONOMY\_v1.0.0](#etm_taxonomy_v100)
+    - [ETM Taxonomy Extension](#etm-taxonomy-extension)
+  - [Table of contents](#table-of-contents)
+  - [Summary](#summary)
+  - [Abstract](#abstract)
+  - [Motivation](#motivation)
+  - [Specification](#specification)
+      - [Top-Level Metadata:](#top-level-metadata)
+      - [Extended Top-Level Data Types:](#extended-top-level-data-types)
+      - [Standard `AssetType` Definitions](#standard-assettype-definitions)
+        - [Categories and Items](#categories-and-items)
+        - [Clothing](#clothing)
+        - [Weapons](#weapons)
+        - [Avatar](#avatar)
+        - [Audio](#audio)
+        - [Furniture](#furniture)
+        - [Nature](#nature)
+        - [Structure (vs Building)](#structure-vs-building)
+  - [Metadata Examples](#metadata-examples)
+      - [Single Asset](#single-asset)
+      - [Multiple Assets](#multiple-assets)
+  - [Backwards Compatibility](#backwards-compatibility)
+  - [Considerations](#considerations)
+  - [Copyright](#copyright)
 
 ## Summary
-With the expansion in use cases for Non-Fungible Tokens (NFTs), there has arisen a need to standardize the taxonomical categories of assets to be ingested in to a game.  Here, we define a standard by which an NFT can assume use-cases in a game through a standard taxonomy.
+With the expansion in use cases for Non-Fungible Tokens (NFTs), there has arisen a need to standardize the taxonomical categorization of assets to be ingested into a game.  Here, we define a standard by which an NFT can assume use-cases in a game through a standard taxonomy.
 
 ## Abstract
 This standard is an extension of [ETM](ETM_v1.0.0) and provides a decentralized approach to describe the taxonomy of a digital asset represented as an NFT.
 
 The goal is to provide a streamlined approach to the following:
- - Assigning a taxonomy category to an NFT such that custom or centralized tooling is not required to use the item in game
+ - Assigning a taxonomy category to an NFT such that custom or centralized tooling is not needed to understand how an asset is intended to be used
  - Bridging NFTs across multiple games with use and function
- - Providing a clear definition of the general purpose of this item in a game world
+ - Providing a clear definition of the general purpose of an asset in a game world
 
 ## Motivation
-As more games incorporate NFTs in to their gameplay, the need for an interoperable taxonomy standard is clear.  Currently, games assign taxonomy and use to their native assets, with little ability for the user to bring in custom models with identical behaviour.  By defining general usability within token metadata, players are able to bring their NFTs between game worlds while still retaining the expected function of the item.
+As more games incorporate NFTs in to their gameplay, the need for an interoperable taxonomy standard is clear. Currently, games assign taxonomy and use to their native assets, with little ability for the user to bring in custom models with identical behaviour. By defining general usability within token metadata, players are able to bring their NFTs between game worlds while still retaining the expected function of the item.
 
 Here's an example of the current method by which a user might bring an NFT representing a game asset into a game:
 
@@ -69,30 +79,19 @@ The clear benefit of this approach is that with no custom project-level support 
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 #### Top-Level Metadata:
-This specification, when used for a single asset, adds the `asset_type` key to the top level of [ETM](ETM_v1.0.0) metadata JSON.
-
-- only with multiasset standard
-```
-{
-  "metadataStandard": "ETM_v1.0.0",
-  "extensions": [ "ETM_TAXONOMY_v1.0.0" ],
-  "asset_type": ""
-}
-```
-
-This specification MAY be used with the ETM_MULTIASSET extension, adding the `asset_type` key to the individual file.
-
+Inclusion of the ETM_MULTIASSET extension is REQUIRED to use the ETM_TAXONOMY extension. The ETM_TAXONOMY extension allows inclusion of an OPTIONAL `asset_type` key under each asset in the `assets` array.
 ```
 {
   "metadataStandard": "ETM_v1.0.0",
   "extensions": [ "ETM_MULTIASSET_v1.0.0", "ETM_TAXONOMY_v1.0.0" ],
   "assets": [
     {
+      "media_type": "",
+      "asset_type": "",
       "files": [
         {
           "url": "",
-          "file_type": "",
-          "asset_type": ""
+          "file_type": ""
         }
       ]
     },
@@ -109,7 +108,7 @@ The below table defines the fields that are added to the top-level metadata JSON
 
 | Field Name | Data Type | Inclusion |
 | -------- | -------- | -------- |
-| asset_type| string     | REQUIRED   |
+| asset_type| string     | OPTIONAL   |
 
 #### Standard `AssetType` Definitions
 This standard defines a set of standardized `AssetType` values in order to provide a known interpretation for common types of assets.  `AssetTypes` are in the format of `category/item`.  These definitions and their requirements are defined below.  The `AssetType` is RECOMMENDED to be a value from this list, but users are free to impose functionality on both sides of this standard as they see fit. 
@@ -117,6 +116,7 @@ This standard defines a set of standardized `AssetType` values in order to provi
 
 ##### Categories and Items
 This taxonomy standard uses a high level categorical identifier, followed by a variable number of sub-type identifiers.  High level categories define general usability, while following optional item descriptors provide more granular information.  An item marked `holdable` should just be holdable, while an item marked `holdable/gun` should be held, and firable.
+`This standard should focus solely on telling us WHAT something is and not WHAT IT DOES. So "holdable" should go into a different spec (maybe "behavior")`
 
 ##### Clothing
 | Name    | Description | Expected in game use    |
@@ -133,14 +133,13 @@ This taxonomy standard uses a high level categorical identifier, followed by a v
 - clothing/earring
 
 ##### Weapons
-##### Holdables
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
-| holdable/gun|  | |
-| holdable/sword| | |
-| holdable/consumable| | |
-| holdable/generic| An item that is holdable | The item can be placed in the equipable slot of an avatar |
-- don't describe use (not a behaviour taxonomy - consumable, holdable, wearable)
+| weapon/gun|  | |
+| weapon/sword| | |
+| weapon/grenade| | |
+| weapon/generic| An item that is holdable | The item can be placed in the equipable slot of an avatar |
+`- don't describe use (not a behaviour taxonomy - consumable, holdable, wearable)`
   - weapon/gun
 
 ##### Avatar
@@ -217,3 +216,66 @@ Future Standard Considerations:
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+
+
+
+
+
+
+```
+{
+  "name": "Clever Disguise",
+  "description": "Glasses and a hat.",
+  "image": "https://coolnfts.com/clever-disguse-preview.png",
+  "metadataStandard": "ETM_v1.0.0",
+  "extensions": [ "ETM_MULTIASSET_v1.0.0" ],
+  "assets": [
+    {
+      "name": "Glasses",
+      "description": "An unassuming pair of glasses.",
+      "media_type": "model",
+      "files": [
+        {
+          "url": "https://ipfs.io/bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi",
+          "file_type": "model/fbx"
+        }
+      ],
+      "definition": {
+        "standard": ".metaversefile",
+        "url": "https://ipfs.io/bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi"
+      }
+    },
+    {
+      "name": "Hat",
+      "description": "A suspicious-looking hat.",
+      "media_type": "model",
+      "files": [
+        {
+          "url": "https://ipfs.io/idzbf55yqtglco3fbaqlyufe3fn62y7hu67uh7mdu7pfs5tzrydgiebyfab",
+          "file_type": "model/fbx"
+        }
+      ],
+      "definition": {
+        "standard": "ETM_ASSETDEF_v1.0.0",
+        "taxonomy": "weapon/gun/pistol/desert_eagle",
+        "behaviors": [
+          {
+            "type": "shootable",
+            "properties": {
+              "damage": 10,
+              "range": 100
+            }
+          },
+          {
+            "type": "holdable",
+            "properties": {
+              "grip1": [0, 0, 0],
+              "grip2": [0, 1, 0]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
