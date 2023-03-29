@@ -48,12 +48,12 @@ With the expansion in use cases for Non-Fungible Tokens (NFTs), there has arisen
 This standard is an extension of [ETM](ETM_v1.0.0) and provides a decentralized approach to describe the taxonomy of a digital asset represented as an NFT.
 
 The goal is to provide a streamlined approach to the following:
- - Assigning a taxonomy category to an NFT such that custom or centralized tooling is not needed to understand how an asset is intended to be used
+ - Assigning a taxonomy category to an NFT such that custom or centralized tooling is not needed to understand what an asset is and how it can be applied in game
  - Bridging NFTs across multiple games with use and function
  - Providing a clear definition of the general purpose of an asset in a game world
 
 ## Motivation
-As more games incorporate NFTs in to their gameplay, the need for an interoperable taxonomy standard is clear. Currently, games assign taxonomy and use to their native assets, with little ability for the user to bring in custom models with identical behaviour. By defining general usability within token metadata, players are able to bring their NFTs between game worlds while still retaining the expected function of the item.
+As more games incorporate NFTs in to their gameplay, the need for an interoperable taxonomy standard is clear. Currently, games assign taxonomy and use to their native assets, with little ability for the user to bring in custom models with identical behaviour. By defining general usability within token metadata, players are able to bring their NFTs and its metadata between game worlds while still retaining the information that defines what the asset is.
 
 Here's an example of the current method by which a user might bring an NFT representing a game asset into a game:
 
@@ -112,50 +112,46 @@ The below table defines the fields that are added to the top-level metadata JSON
 
 #### Standard `AssetType` Definitions
 This standard defines a set of standardized `AssetType` values in order to provide a known interpretation for common types of assets.  `AssetTypes` are in the format of `category/item`.  These definitions and their requirements are defined below.  The `AssetType` is RECOMMENDED to be a value from this list, but users are free to impose functionality on both sides of this standard as they see fit. 
-- SHOULD use
 
 ##### Categories and Items
-This taxonomy standard uses a high level categorical identifier, followed by a variable number of sub-type identifiers.  High level categories define general usability, while following optional item descriptors provide more granular information.  An item marked `holdable` should just be holdable, while an item marked `holdable/gun` should be held, and firable.
-`This standard should focus solely on telling us WHAT something is and not WHAT IT DOES. So "holdable" should go into a different spec (maybe "behavior")`
+This taxonomy standard uses a high level categorical identifier, followed by a variable number of sub-type identifiers.  High level categories define general taxonomy, while following optional item descriptors provide more granular information.
 
 ##### Clothing
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
-| clothing/top| shirt, jacket, robe, etc | Placeable on upper torso/arms of avatar |
-| clothing/bottom| pants, skirt, etc | Placeable on lower torso/legs of avatar |
-| clothing/head| hat, helmet, etc | Placeable on the head of an avatar |
-| clothing/feet| shoes, socks, etc | Placeable on the feet of a biped avatar |
-| clothing/generic| | |
-
-- not enough granularity
-- clothing/shirt
-- clothing/jacket
-- clothing/earring
+| clothing/shirt| Shirt | Placeable on upper torso/arms of avatar |
+| clothing/jacket| Goes over shirt, can be open in front | Placeable on upper torso/arms of avatar |
+| clothing/pants| Long pants, shorts, skirts | Placeable on the lower torso/legs of avatar |
+| clothing/shoes| shoes, socks, etc | Placeable on the feet of a biped avatar |
+| clothing/gloves| Any hand item | Placeable on the hands of a biped, 5 finger avatar |
+| jewelry/earring| Earrings | Placeable on the ears of an avatar |
+| jewelry/necklace| Necklace | Placeable around the neck of an avatar |
+| jewelry/bracelet| Bracelet | Placeable around the wrists of an avatar |
 
 ##### Weapons
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
-| weapon/gun|  | |
+| weapon/gun/pistol| A single handed weapon | Held in the hand of an avatar, fireable |
+| weapon/gun/rifle| A two handed weapon | Held in the hands of an avatar, fireable |
 | weapon/sword| | |
 | weapon/grenade| | |
-| weapon/generic| An item that is holdable | The item can be placed in the equipable slot of an avatar |
-`- don't describe use (not a behaviour taxonomy - consumable, holdable, wearable)`
-  - weapon/gun
+| weapon/generic| An item that does damage | The item can be placed in the equipable slot of an avatar |
 
 ##### Avatar
-avatar/humanoid
+| Name    | Description | Expected in game use    |
+|-------------|-------------|-------------|
+| avatar/humanoid | A biped avatar with a humanoid rig | Player controls character |
 
 ##### Audio
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
-| audio/sfx|  | |
-| audio/ambient| | |
+| audio/sfx/movement/jump|  | |
+| audio/sfx/movement/footstep|  | |
+| audio/sfx/movement/footstep/grass|  | |
+| audio/ambient/environment/waves|  | |
+| audio/ambient/environment/birds|  | |
 | audio/music| | |
 | audio/generic| | |
-
-- Break out sfx?
-  - sfx/movement/jump
-  - sfx/environment/waves
 
 ##### Furniture
 | Name    | Description | Expected in game use    |
@@ -184,15 +180,15 @@ avatar/humanoid
 | nature/rock| | |
 | nature/generic| | |
 
-##### Structure (vs Building)
+##### Structure
 | Name    | Description | Expected in game use    |
 |-------------|-------------|-------------|
 | structure/wall|  | |
-| building/door| | |
-| building/window| | |
-| building/roof|  | |
-| building/floor| | |
-| building/generic| | |
+| Structure/door| | |
+| Structure/window| | |
+| Structure/roof|  | |
+| Structure/floor| | |
+| Structure/generic| | |
 
 ## Metadata Examples
 
