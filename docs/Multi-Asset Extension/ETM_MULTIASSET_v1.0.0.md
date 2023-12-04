@@ -75,7 +75,7 @@ This specification adds the `assets` key to the top level of [ETM](ETM_v1.0.0) m
 
 ```
 {
-  "metadataStandard": "ETM_v1.0.0",
+  "metadata_standard": "ETM_v1.0.0",
   "extensions": [ "ETM_MULTIASSET_v1.0.0" ],
   "assets": []
 }
@@ -167,7 +167,7 @@ The following is an example of this extension including data for an NFT that con
   "name": "Clever Disguise",
   "description": "Glasses and a hat.",
   "image": "https://coolnfts.com/clever-disguse-preview.png",
-  "metadataStandard": "ETM_v1.0.0",
+  "metadata_standard": "ETM_v1.0.0",
   "extensions": [ "ETM_MULTIASSET_v1.0.0" ],
   "assets": [
     {
@@ -202,7 +202,7 @@ The following is an example of this extension including data for an NFT that con
 {
   "name": "Snazzy Shirt",
   "description": "A shirt to wear to the jazz club.",
-  "metadataStandard": "ETM_v1.0.0",
+  "metadata_standard": "ETM_v1.0.0",
   "extensions": [ "ETM_MULTIASSET_v1.0.0" ],
   "assets": [
     {
@@ -241,7 +241,7 @@ The following is an example of the metadata for an NFT representing an entire ou
   "name": "Snazzy Outfit",
   "description": "A whole outfit to wear to the jazz club!",
   "image": "https://coolnfts.com/entire-outfit-preview.png",
-  "metadataStandard": "ETM_v1.0.0",
+  "metadata_standard": "ETM_v1.0.0",
   "extensions": [ "ETM_MULTIASSET_v1.0.0" ],
   "assets": [
     {
