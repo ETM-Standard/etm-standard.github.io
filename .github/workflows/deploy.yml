@@ -39,7 +39,8 @@ jobs:
 
       - name: Configure Docusaurus
         run: |
-          echo "DOCUSAURUS_URL=$(echo https://${{ github.repository_owner }}.github.io | tr '[[:upper:]]' '[[:lower:]]')" >> $GITHUB_ENV
+          DOCUSAURUS_URL=$(echo https://${{ github.repository_owner }}.github.io | tr '[[:upper:]]' '[[:lower:]]')
+          echo "DOCUSAURUS_URL=$DOCUSAURUS_URL" >> $GITHUB_ENV
           echo "DOCUSAURUS_URL is $DOCUSAURUS_URL"
 
       - run: npm run build
