@@ -4,11 +4,12 @@
 // https://www.npmjs.com/package/dotenv
 //require('dotenv').config();
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import {themes as prismThemes} from 'prism-react-renderer';
+const lightCodeTheme = prismThemes.github;
+const darkCodeTheme = prismThemes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+export default {
   title: process.env.DOCUSAURUS_TITLE || 'ETM Standard Specifications',
   tagline:
     process.env.DOCUSAURUS_TAGLINE || 'Extensible Token Metadata Standard',
@@ -40,11 +41,11 @@ const config = {
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       navbar: {
         title: 'Extensible Token Metadata Standard',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'ETM Logo',
           src: 'img/etm_logo_black.png',
           srcDark: 'img/etm_logo_white.png',
         },
@@ -63,9 +64,11 @@ const config = {
         //   },
         // ],
       },
+
       colorMode: {
         defaultMode: 'dark',
       },
+
       footer: {
         style: 'dark',
         // links: [
@@ -111,11 +114,10 @@ const config = {
         // ],
         copyright: `Copyright © ${new Date().getFullYear()} ETM-Standards. Built with Docusaurus.`,
       },
+
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-      },
-    }),
+      }
+    }
 };
-
-module.exports = config;
